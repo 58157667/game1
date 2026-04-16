@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Login</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+<div id="app">
+
+    <h2>登录</h2>
+    <input v-model="loginUser.username" placeholder="用户名">
+    <input v-model="loginUser.password" placeholder="密码" type="password">
+    <button @click="login">登录</button>
+
+    <h2>注册</h2>
+    <input v-model="registerUser.username" placeholder="用户名">
+    <input v-model="registerUser.password" placeholder="密码">
+    <button @click="register">注册</button>
+
+    <p>{{ msg }}</p>
+
+</div>
+
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            loginUser: {},
+            registerUser: {},
+            msg: ""
+        }
+    },
+    methods: {
+        login() {
+            fetch("http://localhost:8080/api/login", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(this.loginUser)
+            }).then(r => r.text()).then(d => this.msg = d)
+        },
+        register() {
+            fetch("http://localhost:8080/api/register", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(this.registerUser)
+            }).then(r => r.text()).then(d => this.msg = d)
+        }
+    }
+})
+app.mount("#app")
+</script>
+
+</body>
+</html>
