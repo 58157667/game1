@@ -4,6 +4,8 @@ spring:
     username: games_j38e_user
     password: 1OEDQ3qqWcWp2I7aZZdQ5y1M9vP1rlQC
     
+    
+    
     driver-class-name: org.postgresql.Driver
 
   jpa:
