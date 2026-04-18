@@ -1,10 +1,15 @@
-FROM openjdk:17-jdk-slim
+FROM maven:3.9-eclipse-temurin-17 AS build
 
-# 设置工作目录
 WORKDIR /app
+COPY . .
 
-# 复制 jar 包
-COPY target/Games-0.0.1-SNAPSHOT.jar app.jar
+RUN mvn clean package -DskipTests
 
-# 启动应用
+FROM eclipse-temurin:17-jdk
+
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 8080
+
 ENTRYPOINT ["java","-jar","app.jar"]
