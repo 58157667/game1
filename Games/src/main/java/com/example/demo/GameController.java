@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api1")
 public class GameController {
 
     @Autowired
     private UserRepository userRepo;
 
     // 注册
-    @PostMapping("/register")
+    @PostMapping("/register1")
     public User register(@RequestBody User user) {
         return userRepo.save(user);
     }
 
     // 登录
-    @PostMapping("/login")
+    @PostMapping("/login1")
     public User login(@RequestBody User user) {
         return userRepo.findByUsername(user.getUsername());
     }
