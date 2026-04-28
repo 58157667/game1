@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-d7goigu7r5hc73dorib0-a.oregon-postgres.render.com/games_j38e
-    username: games_j38e_user
-    password: 1OEDQ3qqWcWp2I7aZZdQ5y1M9vP1rlQC
+    url: jdbc:postgresql://dpg-d7o6f237uimc73blhpk0-a.oregon-postgres.render.com/game_20j1
+    username: game_20j1_user
+    password: tyzlBgbLXHlCLmZH6yCGJAROASNytrxw
     
     
     
