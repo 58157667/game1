@@ -35,14 +35,14 @@ const app = Vue.createApp({
     },
     methods: {
         login() {
-            fetch("http://localhost:8080/api/login", {
+            fetch("https://game1-hnw9.onrender.com:8080/api/login", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(this.loginUser)
             }).then(r => r.text()).then(d => this.msg = d)
         },
         register() {
-            fetch("http://localhost:8080/api/register", {
+            fetch("https://game1-hnw9.onrender.com:8080/api/register", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(this.registerUser)
